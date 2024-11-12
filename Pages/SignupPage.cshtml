@@ -1,0 +1,77 @@
+@page
+@model DearDiary.Pages.SignupPage
+@{
+    ViewData["Title"] = "SignupPage";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-12">
+            <!-- Sign-up Card -->
+            <div class="card bg-dark text-white p-4 rounded-3" style="box-shadow: 0px 0px 50px red;">
+                <h2 class="text-center text-danger fw-bold fs-3 mb-4">Create Your DearyDiary Account</h2>
+                <form>
+                    <!-- Full Name -->
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" required>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your Username" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <select class="form-select" id="gender" required>
+                            <option value="" disabled selected>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">I agree to the <a href="#" class="text-danger">Terms and Conditions</a></label>
+                    </div>
+
+                    <!-- Sign-up Button -->
+                    <button type="submit" class="btn btn-danger w-100 py-2">Sign Up</button>
+                </form>
+                <div class="text-center mt-3">
+                    <p class="text-white">Already have an account? <a href="~/LoginPage" class="text-danger">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

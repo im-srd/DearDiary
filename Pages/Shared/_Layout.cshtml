@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DearDiary</title>
+    <link rel="icon" href="~/Images/diary.png" type="image/x-icon" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DearDiary.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    @* ----------HEADER--------- *@
+    <header>
+    <nav class="navbar bg-dark">
+        <div class="container-fluid d-flex justify-content-center align-items-center w-100">
+            <div class="d-flex align-items-center">
+                <img src="/Images/diary.png" alt="..." width="40px">
+                <span class="text-danger fw-bold fs-2 m-1">deardiary.</span>
+                <span class="text-white fw-bold fs-2">com</span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    @* ------------------------- *@
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* ---------FOOTER---------- *@
+    <footer class="text-center mt-4">
+    <div class="container">
+        <p class="text-white mb-1">© 2024 DearyDiary.com. All rights reserved.</p>
+        <p class="text-white mb-1">Email: <a href="mailto:shyamrdubey@gmail.com" class="text-white">shyamrdubey@gmail.com</a></p>
+        <p class="text-white mb-1">Phone: +91 700459-1372</p>
+        <p class="text-white mb-1">Address: Bangalore, Karnataka, India</p>
+        <p class="text-white mb-0">
+            Follow us on: 
+            <a href="https://www.facebook.com/dearydiary" target="_blank" class="text-white"><i class="fa-brands fa-facebook"></i></a> | 
+            <a href="https://www.twitter.com/dearydiary" target="_blank" class="text-white"><i class="fa-brands fa-twitter"></i></a> | 
+            <a href="https://www.instagram.com/dearydiary" target="_blank" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+        </p>
+    </div>
+</footer>
+
+    @* ------------------------- *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

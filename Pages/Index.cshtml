@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- First Section (Text + Image) -->
+<div class="d-flex flex-column flex-md-row align-items-center fade-in">
+    <p class="text-white w-100 w-md-50 word-wrap m-2">
+        Welcome to DearyDiary.com – your private, digital sanctuary for journaling and self-expression. We believe in the power of personal reflection and aim to provide a simple, secure, and beautifully designed space where you can capture your daily thoughts, moments, and memories with ease. Whether you’re looking to record everyday events, track your personal growth, or simply unwind through writing, 
+        <span class="text-danger fw-bold m-1">deardiary.</span><span class="text-white fw-bold">com</span>
+        is here to support your journey. <br><br>
+
+        With DearyDiary.com, your entries are kept safe and accessible only to you, allowing you the freedom to be open and honest in a confidential space. Relive past moments, gain new insights, and watch your story unfold over time. <br><br>
+
+        Start your diary today and experience the joy of keeping a digital record of your life – one entry at a time.
+    </p>
+    <img class="border rounded-pill m-2 w-100 w-md-45" src="/Images/image1.png" alt="" height="350px">
+</div>
+
+<!-- Second Section (Logo + Animated Text) -->
+<div class="container d-flex flex-column flex-md-row align-items-center w-100 fs-2">
+    <img src="/Images/diary.png" alt="..." width="80px" class="mb-3 mb-md-0">
+    <p class="text-white typing m-3" id="animatedText">
+        <img src="/Images/diary.png" alt="...">
+    </p>
+</div>
+
+<div class="container-fluid d-flex justify-content-center w-100 mt-5">
+    <button class="btn btn-outline-danger btn-lg">
+    Join US
+    </button>
+</div>

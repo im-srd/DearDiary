@@ -1,0 +1,60 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: Century Gothic;
+  background-color: rgb(33,37,41);
+}
+
+/* Fading in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
+/* For typing-animation effect */
+.typing {
+  border-right: 2px solid white;       /* Cursor effect */
+  white-space: nowrap;                 /* Keeps text on one line */
+  overflow: hidden;                    /* Hides overflow text */
+  width: 0;                            /* Initial width for typing effect */
+  animation: typing 3s steps(30, end), blink 0.7s step-end infinite alternate;
+}
+
+/* Keyframe animations for typing and blinking cursor */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: red; }
+}
