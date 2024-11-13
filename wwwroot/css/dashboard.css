@@ -1,0 +1,21 @@
+.container-fluid {
+    padding: 0;
+}
+
+aside {
+    min-height: 100vh;
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.create-entry a {
+    display: block;
+    margin-top: 10px;
+}

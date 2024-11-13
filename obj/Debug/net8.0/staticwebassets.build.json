@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H0R79zP7myPo+0hsoH/bLJ3AODxdaydawc9UuIgopiI=",
+  "Hash": "Qsk2+7c1EHlQ6wltKHUbRHwbKNvi1YbjWpTJtlyk+rE=",
   "Source": "DearDiary",
   "BasePath": "_content/DearDiary",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\DearDiary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DearDiary.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\DearDiary\\wwwroot\\css\\dashboard.css",
+      "SourceId": "DearDiary",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DearDiary\\wwwroot\\",
+      "BasePath": "_content/DearDiary",
+      "RelativePath": "css/dashboard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
     },
     {
       "Identity": "D:\\DearDiary\\wwwroot\\css\\site.css",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\image1.png"
+    },
+    {
+      "Identity": "D:\\DearDiary\\wwwroot\\Images\\page.jpg",
+      "SourceId": "DearDiary",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DearDiary\\wwwroot\\",
+      "BasePath": "_content/DearDiary",
+      "RelativePath": "Images/page.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\page.jpg"
     },
     {
       "Identity": "D:\\DearDiary\\wwwroot\\js\\site.js",

@@ -1,0 +1,50 @@
+@page
+@model DearDiary.Pages.Diary.UserDashboard
+@{
+    ViewData["Title"] = "UserDashboard";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <aside style="box-shadow: 0px 0px 20px red;" class="col-md-3 bg-dark text-white p-4">
+            <div class="user-details mb-4">
+                <h4 class="text-center text-danger">User Details</h4>
+                <p><strong>Name:</strong> @Model.UserName</p>
+                <p><strong>Email:</strong> @Model.UserEmail</p>
+                <p><strong>Joined:</strong> @Model.JoinDate.ToString("MMMM dd, yyyy")</p>
+            </div>
+            <div class="create-entry mt-4 text-center">
+                <a asp-page-handler="Create" class="btn btn-outline-danger" asp-page="/Diary/MyDiary">Create New
+                    Diary</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="col-md-9 p-4">
+            <h3 class="text-danger mb-4">Your Diary Entries</h3>
+            <div class="row">
+                @foreach (var entry in Model.DiaryEntries)
+                {
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card bg-dark text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">@entry.Title</h5>
+                                <p class="card-text text-muted">@entry.Content.Substring(0, Math.Min(entry.Content.Length,
+                                100))...</p>
+                                <small class="text-muted">Created on @entry.DateCreated.ToString("MMMM dd, yyyy")</small>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a asp-page-handler="Edit" asp-route-id="@entry.UId"
+                                    class="btn btn-outline-warning btn-sm">Edit</a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@entry.UId" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+</div>

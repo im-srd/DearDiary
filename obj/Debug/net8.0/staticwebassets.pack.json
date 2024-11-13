@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\Images\\image1.png"
     },
     {
+      "Id": "D:\\DearDiary\\wwwroot\\Images\\page.jpg",
+      "PackagePath": "staticwebassets\\Images\\page.jpg"
+    },
+    {
+      "Id": "D:\\DearDiary\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "D:\\DearDiary\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

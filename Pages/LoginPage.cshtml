@@ -14,17 +14,17 @@
                 <h2 class="text-center text-danger fw-bold fs-3 mb-4">Login to 
                     <span class="text-danger fw-bold fs-2 m-1">deardiary.</span><span class="text-white fw-bold fs-2">com</span>
                 </h2>
-                <form>
+                <form method="post">
                     <!-- Username -->
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                        <input asp-for="user.Username" type="text" class="form-control" placeholder="Enter your username" required>
                     </div>
 
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        <input asp-for="user.Password" type="password" class="form-control" placeholder="Enter your password" required>
                     </div>
 
                     <!-- Remember Me Checkbox -->
@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- Login Button -->
-                    <button type="submit" class="btn btn-danger w-100 py-2">Login</button>
+                    <button type="submit" class="btn btn-danger w-100 py-2" asp-page-handler="Submit">Login</button>
                 </form>
                 <div class="text-center mt-3">
                     <p class="text-white">Don't have an account? <a href="~/SignupPage" class="text-danger">Sign up</a></p>
