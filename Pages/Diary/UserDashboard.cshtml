@@ -1,18 +1,24 @@
 @page
 @model DearDiary.Pages.Diary.UserDashboard
 @{
-    ViewData["Title"] = "UserDashboard";
+    ViewData["Title"] = @Model.UserName;
 }
 
 <div class="container-fluid">
     <div class="row">
-        <!-- Sidebar -->
-        <aside style="box-shadow: 0px 0px 20px red;" class="col-md-3 bg-dark text-white p-4">
-            <div class="user-details mb-4">
+        @* Sidebar *@
+        <aside style="border: 2px solid red; border-radius:10px" class="col-md-3 bg-dark text-white p-4">
+            <div class="user-details mb-4 d-flex flex-column justify-content-center align-items-center">
                 <h4 class="text-center text-danger">User Details</h4>
-                <p><strong>Name:</strong> @Model.UserName</p>
-                <p><strong>Email:</strong> @Model.UserEmail</p>
-                <p><strong>Joined:</strong> @Model.JoinDate.ToString("MMMM dd, yyyy")</p>
+                <img class="d-flex w-100 border border-danger border-3 rounded-circle"
+                    style="max-height: 200px; max-width: 200px; box-shadow: 0px 0px 25px red;" src="/Images/diary.png"
+                    alt="Display Picture">
+                <div class="user-details mb-4">
+                    <p><strong class="text-danger">Name:</strong> <br> @Model.UserName</p>
+                    <p><strong class="text-danger">Email:</strong> <br> @Model.UserEmail</p>
+                    <p><strong class="text-danger">Today's Date:</strong> <br> @Model.JoinDate.ToString("MMMM dd, yyyy")
+                    </p>
+                </div>
             </div>
             <div class="create-entry mt-4 text-center">
                 <a asp-page-handler="Create" class="btn btn-outline-danger" asp-page="/Diary/MyDiary">Create New
@@ -20,14 +26,14 @@
             </div>
         </aside>
 
-        <!-- Main Content Area -->
-        <main class="col-md-9 p-4">
+        @* Main Content Area *@
+        <main class="col-md-9 ps-lg-5 pt-sm-2">
             <h3 class="text-danger mb-4">Your Diary Entries</h3>
             <div class="row">
                 @foreach (var entry in Model.DiaryEntries)
                 {
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
+                        <div style="box-shadow: 0px 0px 10px yellow;" class="card bg-dark text-white h-100">
                             <div class="card-body">
                                 <h5 class="card-title">@entry.Title</h5>
                                 <p class="card-text text-muted">@entry.Content.Substring(0, Math.Min(entry.Content.Length,
@@ -35,8 +41,16 @@
                                 <small class="text-muted">Created on @entry.DateCreated.ToString("MMMM dd, yyyy")</small>
                             </div>
                             <div class="card-footer d-flex justify-content-between">
-                                <a asp-page-handler="Edit" asp-route-id="@entry.UId"
-                                    class="btn btn-outline-warning btn-sm">Edit</a>
+                                @* Edit Button *@
+                                <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#EditModal"
+                                    onclick="populateEditModal(@entry.UId, '@entry.Title', '@entry.Content')">Edit</button>
+
+                                @* View Button *@
+                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" 
+                                    data-bs-target="#ViewModal-@entry.UId">View</button>
+
+                                @* Delete Button *@
                                 <form method="post" asp-page-handler="Delete" asp-route-id="@entry.UId" class="d-inline">
                                     <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                                 </form>
@@ -48,3 +62,63 @@
         </main>
     </div>
 </div>
+
+@* Edit Modal *@
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" asp-page-handler="Edit">
+            <div class="modal-content bg-dark text-danger">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EditModalLabel">Edit Diary Entry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="DiaryId" name="DiaryId" />
+                    <div class="mb-3">
+                        <label for="DiaryTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control bg-dark text-white" id="DiaryTitle" name="Title" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="DiaryContent" class="form-label">Content</label>
+                        <textarea class="form-control bg-dark text-white" id="DiaryContent" name="Content" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-danger">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@* View Modal *@
+@foreach (var entry in Model.DiaryEntries)
+{
+    <div class="modal fade" id="ViewModal-@entry.UId" tabindex="-1" aria-labelledby="ViewModalLabel-@entry.UId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-danger">
+                    <h5 class="modal-title text-center w-100 text-danger">@entry.Title</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>@entry.Content</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    function populateEditModal(id, title, content) {
+        document.getElementById('DiaryId').value = id;
+        document.getElementById('DiaryTitle').value = title;
+        document.getElementById('DiaryContent').value = content;
+    }
+</script>

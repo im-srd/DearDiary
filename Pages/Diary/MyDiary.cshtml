@@ -5,34 +5,17 @@
 }
 <div class="container mt-4">
 
-    <!-- Display all diary entries -->
-    <div class="diary-entries mt-4">
-        @foreach (var entry in Model.Entries)
-        {
-            <div class="entry bg-dark text-white rounded p-3 mb-4">
-                <h4 class="text-danger">@entry.Title</h4>
-                <p>@entry.Content</p>
-                <small class="text-muted">Created on @entry.DateCreated.ToString("MMMM dd, yyyy")</small>
-
-                <!-- Edit and Delete buttons -->
-                <form method="post" asp-page-handler="Delete" asp-route-id="@entry.UId" class="d-inline">
-                    <button type="submit" class="btn btn-outline-danger btn-sm mt-2">Delete</button>
-                </form>
-            </div>
-        }
-    </div>
-
     <!-- New Entry Form -->
     <div style="background-image: url(/Images/page.jpg);" class="new-entry bg-light text-dark rounded p-4 mt-5">
         <h3 class="text-center">Create a New Entry</h3>
         <form method="post" asp-page-handler="Create" >
             <div class="form-group">
                 <label asp-for="NewEntry.Title" class="form-label"></label>
-                <input style="background:transparent" asp-for="NewEntry.Title" class="form-control" required />
+                <input style="background:transparent; border:none;" asp-for="NewEntry.Title" class="form-control" required />
             </div>
             <div class="form-group mt-3">
                 <label asp-for="NewEntry.Content" class="form-label"></label>
-                <textarea style="background: transparent;" asp-for="NewEntry.Content" class="form-control" rows="5" required></textarea>
+                <textarea style="background: transparent; border:none;" asp-for="NewEntry.Content" class="form-control" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-outline-danger btn-lg mt-4">Save Entry</button>
         </form>
